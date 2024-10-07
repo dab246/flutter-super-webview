@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_super_html_viewer/flutter_super_html_viewer.dart';
 import 'package:flutter_super_html_viewer/src/widgets/mobile/html_content_viewer_widget_mobile.dart'
     as mobile;
-import 'package:flutter_super_html_viewer/src/widgets/desktop/html_content_viewer_widget_desktop.dart'
-    as desktop;
 import 'package:flutter_super_html_viewer/utils/app_define.dart';
 import 'dart:io' show Platform;
 
@@ -74,19 +72,6 @@ class HtmlContentViewer extends StatelessWidget {
             onScrollHorizontalEnd: onScrollHorizontalEnd,
             urlLauncherDelegate: urlLauncherDelegate,
             mailtoDelegate: mailtoDelegate);
-      } else if (Platform.isWindows) {
-        print('VAO isWindows');
-        return desktop.HtmlContentViewerWidget(
-          htmlContent: htmlContent,
-          initialContentHeight: initialContentHeight,
-          initialContentWidth: initialContentWidth,
-          minContentWidth: minContentWidth,
-          minContentHeight: minContentHeight,
-          customStyleCssTag: customStyleCssTag,
-          customScriptsTag: customScriptsTag,
-          loadingView: loadingView,
-          controller: controller,
-        );
       } else {
         return const Text('Unsupported in this environment');
       }

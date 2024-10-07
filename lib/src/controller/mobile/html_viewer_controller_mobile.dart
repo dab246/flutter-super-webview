@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart' as mobile;
 import 'package:flutter_super_html_viewer/src/controller/html_viewer_controller_unsupported.dart'
     as unsupported;
-import 'package:webview_windows/webview_windows.dart' as window;
 
 /// Controller for mobile
 class HtmlViewerController extends unsupported.HtmlViewerController {
@@ -25,8 +24,6 @@ class HtmlViewerController extends unsupported.HtmlViewerController {
 
     if (Platform.isAndroid || Platform.isIOS) {
       _webViewController = controller as mobile.InAppWebViewController;
-    } else if (Platform.isWindows) {
-      _webViewController = controller as window.WebviewController;
     }
   }
 }
